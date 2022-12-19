@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <title>ilot_root</title>
+    <script type="text/javascript" src="jsBridgeHelper.js"></script>
+    <script>
+      function getAppInfo() {}
+
+      function getWebValue() {
+        let data = {
+          endpoint: "/api/challenges",
+          data: null,
+          method: "POST",
+          shouldEncrypt: true,
+        };
+        window.flutter_inappwebview
+          .callHandler("call_api", data)
+          .then(function (result) {
+            alert(JSON.stringify(result));
+            document.getElementById("app_version_name").innerHTML =
+              "system version : " + JSON.parse(JSON.stringify(result)).error_code;
+          });
+      }
+
+      function receiveMessage(jsonStr) {
+        if (jsonStr != undefined && jsonStr != "") {
+          let data = JSON.parse(JSON.stringify(jsonStr));
+          window.jsBridgeHelper.receiveMessage(data);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <span id="app_version_name">app version name : </span><br />
+      <span id="is_app">is app : </span><br />
+      <button type="button">Click Me!</button>
+
+      <button type="button" onclick="getWebValue();">Test Return</button>
+    </div>
+  </body>
+</html>
