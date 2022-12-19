@@ -2,7 +2,7 @@
 
 Update ngày 10/08/2022
 
-## Ví dụ:
+## Ví dụ
 
 ```javascript
 function getWebValue() {
@@ -22,7 +22,7 @@ function getWebValue() {
 }
 ``` 
 
-# Thông tin:
+## Thông tin
 
 - endpoint:(string) Endpoint cần gọi API.
 - data:(map<String, String>): Param gọi lên
