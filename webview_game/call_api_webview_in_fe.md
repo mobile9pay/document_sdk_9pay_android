@@ -6,6 +6,7 @@
 
 - Update ngày 19/12/2022: Khởi tạo file và viết hàm call API
 - Update ngày 26/12/2022: Thêm hàm đóng webview, show toast
+- Update ngày 28/12/2022: Thêm hàm đóng update_turn
 
 <br/><br/>
 
@@ -83,5 +84,25 @@ function showToast() {
     message: 'Yêu cầu không thành công',
   };
   window.flutter_inappwebview.callHandler("show_toast", data);
+}
+```
+
+# 4, Trả về số lượt chơi còn lại về cho app 
+
+### Cách gửi dữ liệu
+
+```javascript
+ window.flutter_inappwebview.callHandler("update_turn", data)
+```
+
+### Tham số cần truyền
+
+- data:(int): Chỉ nhận kiểu int. Nếu là double hay string thì sẽ không nhận
+
+###  Ví dụ
+
+```javascript
+function update_turn() {
+  window.flutter_inappwebview.callHandler("update_turn", 9);
 }
 ```
